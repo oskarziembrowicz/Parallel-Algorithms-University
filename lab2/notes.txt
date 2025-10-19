@@ -1,0 +1,29 @@
+Definiowanie operacji jako atomowa (synchroniczna):
+#pragma omp atomic
+
+- Zmienna zdefiniowana przed blokiem równoległym jest współdzielona przez wątki
+
+Zadeklarowanie zmiennej jako prywatną:
+#pragma omp parallel private(var_name)
+
+Wyzerowanie listy dzielonych i prywatnych zmiennych
+#pragma omp parallel default(none)
+
+Dzielenie zadań na sekcje:
+#pragma omp parallel
+{
+    #pragma omp sections
+    {
+        #pragma omp section
+        {
+            ...
+        }
+        #pragma omp section
+        {
+            ...
+        }
+    }
+}
+
+Tworzenie bariery:
+#parallel omp barrier
